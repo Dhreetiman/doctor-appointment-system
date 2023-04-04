@@ -71,7 +71,9 @@ router.post("/login", async (req, res) => {
 
 router.get("/profile", auth, async (req, res) => {
   try {
-    const doctor = await Doctor.findById(req.id).select("-password");
+    let doctor = await Doctor.findById(req.id).select("-password").lean();
+    let appointments = await Appointment.find({doctorInfo: req.id}) .lean()
+    doctor.appointmentHistory = appointments
     res.status(200).send({
       success: true,
       message: "info fetched successfully",

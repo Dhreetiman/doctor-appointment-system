@@ -72,7 +72,9 @@ router.post("/login", async (req, res) => {
 
 router.get("/profile", auth, async (req, res) => {
   try {
-    const patient = await Patient.findById(req.id).select("-password");
+    let patient = await Patient.findById(req.id).select("-password").lean();
+    let appointments = await Appointment.find({patientInfo: req.id})
+    patient.appointmentHistory = appointments
     if (!patient) {
       return res
         .status(200)
