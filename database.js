@@ -5,7 +5,7 @@ const connectDB = async () => {
   try {
     mongoose.set("strictQuery", false);
     mongoose.set("strictPopulate", false);
-    await mongoose.connect(process.env.MONGOURI, {
+    await mongoose.connect("mongodb+srv://Lucifer:lucifer123@hyp.cmbnemy.mongodb.net/doctorAppointment?retryWrites=true&w=majority", {
       useNewUrlParser: true,
       
     });

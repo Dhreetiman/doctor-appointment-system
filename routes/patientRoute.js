@@ -24,7 +24,7 @@ router.post("/register", async (req, res) => {
     await newuser.save();
     res
       .status(200)
-      .send({ message: "patient registered successfully", success: true });
+      .send({ message: "patient registered successfully",data: newuser, success: true });
   } catch (error) {
     console.log(error);
     res.status(500).send({
