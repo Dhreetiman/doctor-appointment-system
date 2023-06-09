@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Dhreetiman/doctor-appointment-system.git"
+    "url": "git+https://github.com/Dhreetiman1/doctor-appointment-system.git"
   },
   "author": "Dhreetiman Prasad",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Dhreetiman/doctor-appointment-system/issues"
+    "url": "https://github.com/Dhreetiman1/doctor-appointment-system/issues"
   },
-  "homepage": "https://github.com/Dhreetiman/doctor-appointment-system#readme",
+  "homepage": "https://github.com/Dhreetiman1/doctor-appointment-system#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
     "bcryptjs": "^2.4.3",
