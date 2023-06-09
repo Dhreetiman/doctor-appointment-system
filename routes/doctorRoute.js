@@ -6,6 +6,9 @@ const Appointment = require("../models/Appointment");
 const Patient = require("../models/Patient");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+let Gallery = require("../models/Gallery"); 
+// let Doctor = require("./models/Doctor"); 
+
 
 //Sign up for Doctors
 
@@ -221,5 +224,23 @@ router.post("/change-appointment-status", auth, async (req, res) => {
       });
     }
   });
+
+
+  let addData = async () => {
+    let doctors = await Doctor.find()
+    let galleryData = []
+    for (let doctor of doctors) {
+      let galleries = {
+        doctor : doctor._id
+      }
+      galleryData.push(galleries)
+    }
+    await Gallery.insertMany(galleryData)
+  }
+
+  router.get("/add-data", async (req, res) => {
+    addData()
+    return res.status(200).send("Data Added")
+  })
 
 module.exports = router;
